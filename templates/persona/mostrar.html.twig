@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %} 
+{% block title %}Agenda de contactos{% endblock %}
+{% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href={{asset('estilos/mostrar.css')}}>
+{% endblock %}
+{% block contain %}
+<div class="container mb-5 p-2">
+        <table class="table mr-5 mt-2">
+            <tbody class="tbody-dark text-center">
+                    <tr class="text-center w-100">
+                        <th scope="col">{{persona.nombre}}</th>
+                        <th scope="col">{{persona.apellidos}}</th>
+                    </tr>
+                     <tr class="text-center w-100">
+                        <th scope="col">{{persona.telefono}}</th>
+                        <th scope="col">{{persona.nota}}</th>
+                    <tr>
+                        <th scope="col">
+<img
+                        {% if persona.tipo == 'personal' %}
+                            src="../resources/personal.png"
+                        {% else %}
+                            src="../resources/profesional.png"
+                        {% endif %}
+class="imagentipo"/>
+
+                        </th>
+                    </tr>
+                        
+                        <th scope="col">{{persona.dni}}</th>
+                        <th scope="col">{{persona.correo}}</th>
+
+<th>
+                <a href={{ path('edit' ,{'id' : persona.id}) }} class="w-25">
+                <button type="button" class="btn eliminar" style="background: pink;">Editar</button>
+                </a>
+                        </th>
+                    </tr>
+                    <tr>
+                    
+                    </tr>
+            </tbody>
+            </table>
+</div> 
+
+{% endblock %}

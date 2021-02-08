@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %} 
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href={{asset('estilos/form.css')}}>
+{% endblock %}
+
+{% block contain %}
+<div class="w-75 p-3 d-flex jumbotron">
+<img src="/resources/jhonny.png" class="w-50 mt-2" />
+<div class="container form">
+{{form(form, {'attr': {'class': 'form-yisas w-100'}})}}
+</div>
+</div>
+{% endblock %}

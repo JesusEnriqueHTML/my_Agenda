@@ -1,0 +1,35 @@
+body{
+    background-color: black !important;
+}
+.header{
+background-image: url("../resources/fondo6.jpg");
+}
+.imagenH{
+    width:35%;
+}
+.estrella{
+    width: 5%;
+}
+div > p {
+    color: pink;
+}
+.titulo{
+    margin-top: 12%;
+    color: black;
+}
+nav{
+    background-color: black;
+}
+nav li a {
+    color: pink;
+}
+footer{
+    background-image: url("../resources/fondo6.jpg");
+    border-color: pink;
+}
+footer > p{
+    color: pink;
+}
+.redessociales{
+    width: 22px;
+}

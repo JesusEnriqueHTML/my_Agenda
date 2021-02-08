@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Agenda de contactos</title>
+
+    <link rel="stylesheet" type="text/css" href="/estilos/base.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="viewport" content="width=500, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+        {% block stylesheets %}
+
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        {% block navbar %}
+        <div class="d-flex flex-row justify-content-center p-2">
+        <img src="/resources/estrella.jpeg" class="estrella">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href={{path('index')}}>Agenda</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href={{path('index')}}>Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tipo de Agendas
+                        </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-light text-center" href={{ path('list',{'type': 'personal'}) }}>Personal</a>
+                                <a class="dropdown-item text-light text-center" href={{ path('list',{'type': 'profesional'}) }}>Profesional</a>
+                                <a class="dropdown-item text-light text-center" href={{ path('list',{'type': 'global'}) }}>Global</a>
+                                <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-light text-center" href="#">Enlaces de repuesto por si en <br>algun momento no funciona <br> los enlaces de abajo</a>
+                                </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href={{path('index')}}>Volver</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={{ path('crear') }}>Nuevo Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> 
+        </div>       
+        {% endblock %}
+            {% block header %}
+                <div class=" d-flex flex-row justify-content-center border header container mt-2">
+                <img src="/resources/tusk1.png" class="imagenH mw-25">
+                <div class=" d-flex flex-column  titulo">
+                    <h1 class="display-4"> Mi JoJoGenDa </h1>
+                    <p>&copy; Hecha Por Jesus Enrique Rozas Pena</p>
+                </div>
+
+                </div>
+            {% endblock %}
+
+            <div class=" mt-5 contenido" id="page_container">
+            {% block contain %}
+            {% endblock %}
+            </div>
+
+            {% block footer %}
+                <footer class= "container-fluid mt-5 border p-3 d-flex justify-content-center">
+                    <a href="https://www.facebook.com/jesusenrique.rozaspena.71/"><img src="/resources/facebook.png" class="redessociales mr-5"></a>
+                    <a href="https://www.instagram.com/artaraki/?hl=es"><img src="/resources/instagram.png" class="redessociales mr-5"></a>
+                    <a href="https://twitter.com/arakiart?lang=es"><img src="/resources/twiiter.png" class="redessociales"></a>
+                </footer>
+            {% endblock %}
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+
+        
+        
+        
+        
+        {% endblock %}
+    </body>
+
+</html>

@@ -1,0 +1,15 @@
+td{
+    color: white;
+}
+button:hover{
+    background: black;
+    color: pink;
+}
+button{
+    background: pink;
+    color: black;
+}
+
+.imagentipo{
+    width:5%;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %} 
+{% block stylesheets %}
+       <link rel="stylesheet" href="estilos/index.css">
+
+
+{% endblock %}
+
+
+
+{% block contain %}
+<div class=" d-flex justify-content-around ">
+              <a href={{ path('list',{'type': 'personal'}) }} class="w-25">
+                     <img src="/resources/tusk.png" class="w-75 ml-4"/>
+              </a>
+              <a href={{ path('list',{'type': 'global'}) }} class="w-25">
+                     <img src="/resources/tusk_ball.png" class="w-100 mt-2" />
+              </a>
+              <a href={{ path('list',{'type': 'profesional'}) }} class="w-25">
+                     <img src="/resources/killerQueen.png"  class="w-100" />
+              </a>
+</div>
+<div class="d-flex justify-content-around">
+       <div class="border w-25 mr-3 bg-dark">
+              <p class="text-center mt-3">Agenda Personal</p>
+       </div>
+       <div class="border w-25 mr-3 bg-dark">
+              <p class="text-center mt-3 ">Agenda Global</p>
+       </div>
+       <div class="border w-25 bg-dark">
+              <p class="text-center mt-3">Agenda Profesional</p>
+       </div>
+</div>
+{% endblock %}
+
+
+

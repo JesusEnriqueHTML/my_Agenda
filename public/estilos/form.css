@@ -1,0 +1,27 @@
+#persona{
+    text-align: center;
+}
+
+label.required{
+    color: white;
+    text-align: center;
+}
+
+label{
+    color: white;
+    text-align: center;
+}
+
+input:hover{
+    background-color: fuchsia;
+}
+
+#persona_create{
+    background-color: fuchsia;
+    width: 100%;
+}
+
+.jumbotron{
+    background-image: url("../resources/estrella.jpg");
+    margin-left: 13%;
+}

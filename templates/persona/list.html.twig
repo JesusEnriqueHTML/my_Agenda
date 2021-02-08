@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %} 
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href={{asset('estilos/table.css')}}>
+{% endblock %}
+{% block contain %}
+<div class="container-fluid">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                            <th scope="col"></th>
+
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Mas Informacion</th>
+            </tr>
+        </thead>
+        <tbody class="tbody-dark text-center">
+        {% for persona in list %}
+            <tr>
+            <td>
+                <img
+                        {% if persona.tipo == 'personal' %}
+                            src="../resources/personal.png"
+                        {% else %}
+                            src="../resources/profesional.png"
+                        {% endif %}
+                class="" style="width: 10%;" />
+            </td>
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.apellidos}}</td>
+                <td>{{persona.telefono}}</td>
+                <td class="d-flex justify-content-center">
+                <a href={{ path('mostrar',{'id' : persona.id}) }} class="w-25">
+                <button type="button" class="btn mostrar">Mas Informacion</button>
+                </a>
+                <a href={{ path('borrar',{'id' : persona.id}) }} class="w-25">
+                <button type="button" class="btn eliminar ml-5">Eliminar</button>
+                </a>
+                </td>
+                
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
