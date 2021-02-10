@@ -11,14 +11,14 @@ Inspirada en el anime **JoJo Bizarre adventure**
 | Jesús Enrique | Rozas Pena |
 |||
 
-## Tecnologias Usadas en el Proyecto ##
+## Tecnologías Usadas en el Proyecto ##
 - Usado en base symfony
     - usando plantillas de html.twig
     - bootstrap
 
 ## Usabilidad del proyecto ##
 - **Explicacion Codigo**
-  
+
 La agenda, tendrá diferentes tipos, dependiendo de la imagen, irá a un tipo de agenda diferente.
 ![Con titulo](/public/resources/Markdown/tipo.png "titulo")
 - Todas las agendas tienen los mismos estilos, heredando de la misma base.html.twig
@@ -32,15 +32,15 @@ La agenda, tendrá diferentes tipos, dependiendo de la imagen, irá a un tipo de
 - En **base.html.twig**, dejamos el contain vacio para que al usarlo en las demas plantillas, no tengamos que realizar nada de lo hecho anteriormente, es decir tendremos el __header, el navbar y el footer__.
 
 ~~~
-    {% extends 'base.html.twig' %} 
+    {% extends 'base.html.twig' %}
 ~~~
-    
+
 - **En todos los demas archivos tendremos que añadir este código, y añadir código en el block contain**
 
 
 + ## Funcionalidad ##
 
-En el navbar, habrá diferentes enlaces, para ir a cada parte de la página, en el lado derecho se encontrará el link para redireccionarnos a un enlace para que podamos agregar diferentes contactos. Los campos que no se podrán repetir serán teléfono y correo. 
+En el navbar, habrá diferentes enlaces, para ir a cada parte de la página, en el lado derecho se encontrará el link para redireccionarnos a un enlace para que podamos agregar diferentes contactos. Los campos que no se podrán repetir serán teléfono y correo.
     -El código se encontrará en el controlador principal de nuestra aplicacción.
 ~~~
  /**
@@ -48,7 +48,7 @@ En el navbar, habrá diferentes enlaces, para ir a cada parte de la página, en 
      */
     public function crear(Request $request):Response{
         $persona = new Persona();
-        
+
         $form = $this->createForm(PersonaType::class, $persona);
 
         $form->handleRequest($request);
@@ -62,7 +62,7 @@ En el navbar, habrá diferentes enlaces, para ir a cada parte de la página, en 
         return $this->render('persona/new.html.twig',[
             'form' => $form->createView(),
         ]);
-            
+
     }
 ~~~
 
@@ -79,7 +79,7 @@ Al pulsar cada una de las imágenes nos saldrá una lista que nos permitirá ver
 
  + **Profesional**
     + ![Con titulo](/public/resources/Markdown/lista2.png "titulo")
-  
+
 Al pusar en los botones que **que estan en el lado derecho** no redireccionarán a diferentes páginas, el primero que es **Mostrar mas**, nos llevará una página para poder ver su información más a detalle. Este código se realizá en el controller principal.
 ~~~
 /**
@@ -92,7 +92,7 @@ Al pusar en los botones que **que estan en el lado derecho** no redireccionarán
             return $this->render('persona/mostrar.html.twig',[
             'persona' => $persona,
         ]);
-            
+
     }
 ~~~
 
@@ -126,20 +126,20 @@ Aparte de poder modificar el contacto al lado del botón de visualizar mas datos
      * @Route("/borrar/{id}", name="borrar")
      */
     public function borrar(int $id, PersonaRepository $personaRepository, Persona $persona):Response{
-        
+
             if (!$persona) {
                 throw $this->createNotFoundException('No guest found');
             }
-        
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($persona);
             $entityManager->flush();
-        
+
             return $this->render('persona/contacto_success.html.twig');
-        
-            
+
+
     }
-~~~ 
+~~~
 
 ## Como contribuir al proyecto ##
 + Podreis contribuir con estre proyecto podreis utilizar el github para editarlo, https://github.com/JesusEnriqueHTML
@@ -148,10 +148,3 @@ Aparte de poder modificar el contacto al lado del botón de visualizar mas datos
 ## Licencia ##
 La licencia utilizada en este proyecto es CC BY-NC-SA
   ![Con titulo](/public/resources/licencia.png "titulo")
-
-
-
-
-
-
-
