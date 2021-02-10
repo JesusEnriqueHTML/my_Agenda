@@ -1,14 +1,14 @@
 # **JoJoGenda** #
 
 ![Con titulo](/public/resources/Markdown/header.png "titulo")
-Aplicaccion que funciona como una _Agenda_, es decir teniendo diferentes secciones con diferentes categorias de contactos.
+Aplicacción que funciona como una _Agenda_, es decir teniendo diferentes secciones con diferentes categorías de contactos.
 
 Inspirada en el anime **JoJo Bizarre adventure**
 
 ## Autores ##
 | Nombre | Apellidos |
 |--------|-----------|
-| Jesus Enrique | Rozas Pena |
+| Jesús Enrique | Rozas Pena |
 |||
 
 ## Tecnologias Usadas en el Proyecto ##
@@ -19,7 +19,7 @@ Inspirada en el anime **JoJo Bizarre adventure**
 ## Usabilidad del proyecto ##
 - **Explicacion Codigo**
   
-La agenda, tendra diferentes tipos, dependiendo de la imagen, ira a un tipo de agenda diferente.
+La agenda, tendrá diferentes tipos, dependiendo de la imagen, irá a un tipo de agenda diferente.
 ![Con titulo](/public/resources/Markdown/tipo.png "titulo")
 - Todas las agendas tienen los mismos estilos, heredando de la misma base.html.twig
 ~~~
@@ -35,13 +35,13 @@ La agenda, tendra diferentes tipos, dependiendo de la imagen, ira a un tipo de a
     {% extends 'base.html.twig' %} 
 ~~~
     
-- **En todos los demas archivos tendremos que añadir este codigo, y añadir codigo en el block contain**
+- **En todos los demas archivos tendremos que añadir este código, y añadir código en el block contain**
 
 
 + ## Funcionalidad ##
 
-En el navbar, habra diferentes enlaces, para ir a cada parte de la pagina, en el lado derecho se encontrara el link para redireccionarnos a un enlace para que podamos agregar diferentes contactos. Los campos que no se podran repetir seran telefono y correo. 
-    -El codigo se encontrara en el controlador principal de nuestra aplicaccion.
+En el navbar, habrá diferentes enlaces, para ir a cada parte de la página, en el lado derecho se encontrará el link para redireccionarnos a un enlace para que podamos agregar diferentes contactos. Los campos que no se podrán repetir serán teléfono y correo. 
+    -El código se encontrará en el controlador principal de nuestra aplicacción.
 ~~~
  /**
      * @Route("/crear", name="crear")
@@ -66,7 +66,7 @@ En el navbar, habra diferentes enlaces, para ir a cada parte de la pagina, en el
     }
 ~~~
 
-Al pulsar cada una de las imagenes nos saldra una lista que nos permitira ver todos los contactos que insertamos en nuestra BBDD,  en todas sera de la misma forma, lo unico que tendran diferentes son las imagenes que apareceran al lado izquierdo de cada registro
+Al pulsar cada una de las imágenes nos saldrá una lista que nos permitirá ver todos los contactos que insertamos en nuestra BBDD,  en todas será de la misma forma, lo único que tendrán diferentes son las imágenes que aparecerán al lado izquierdo de cada registro
 
  + **Personal**
     + ![Con titulo](/public/resources/Markdown/lista.png "titulo")
@@ -80,7 +80,7 @@ Al pulsar cada una de las imagenes nos saldra una lista que nos permitira ver to
  + **Profesional**
     + ![Con titulo](/public/resources/Markdown/lista2.png "titulo")
   
-Al pusar en los botones que **que estan en el lado derecho** no redireccionaran a diferentes paginas, el primero que es **Mostrar mas**, nos llevara una pagina para poder ver su informacion mas a detalle. Este codigo se realiza en el controller principal.
+Al pusar en los botones que **que estan en el lado derecho** no redireccionarán a diferentes páginas, el primero que es **Mostrar mas**, nos llevará una página para poder ver su información más a detalle. Este código se realizá en el controller principal.
 ~~~
 /**
      * @Route("/mostrar/{id}", name="mostrar")
@@ -96,7 +96,7 @@ Al pusar en los botones que **que estan en el lado derecho** no redireccionaran 
     }
 ~~~
 
-Y una vez dentro, unicamente podremos ver la informacion y tambien puede **modificar el contacto, generando un formulario con los datos del registro**
+Y una vez dentro, unicamente podremos ver la información y tambien puede **modificar el contacto, generando un formulario con los datos del registro**
 ~~~
    public function formEditExampleAction(Request $request, int $id,  PersonaRepository $personaRepository)
     {
@@ -120,7 +120,7 @@ Y una vez dentro, unicamente podremos ver la informacion y tambien puede **modif
     }
 ~~~
 
-Aparte de poder modificar el contacto al lado del boton de visualizar mas datos, podremos borrar el registro, como en el caso anterior **lo definiremos en el controller**
+Aparte de poder modificar el contacto al lado del botón de visualizar mas datos, podremos borrar el registro, como en el caso anterior **lo definiremos en el controller**
 ~~~
    /**
      * @Route("/borrar/{id}", name="borrar")
