@@ -42,8 +42,8 @@ class ContactoController extends AbstractController {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($persona);
             $entityManager->flush();
-            return $this->render('persona/contacto_success.html.twig');
-        }
+            return $this->redirectToRoute('mostrar', ['id' =>$persona -> getId(),]);
+                }
         /* html donde ponemos el formulario para poder crear una nueva persona */
         return $this->render('persona/new.html.twig',[
             'form' => $form->createView(),
@@ -126,8 +126,9 @@ class ContactoController extends AbstractController {
 
             $em->flush();
 
-            return $this->render('persona/contacto_success.html.twig');
-                }
+            return $this->redirectToRoute('mostrar', ['id' =>$persona -> getId(),]);
+        
+        }
 
         return $this->render('persona/edit.html.twig',[
             'form' => $form->createView()
