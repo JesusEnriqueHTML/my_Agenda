@@ -1,3 +1,6 @@
+/* En todos los documentos de formato .css, unicamente daremos
+tamaños y colores que no podemos realizarlo con Bootstrap*/
+
 body{
     background-color: black !important;
 }

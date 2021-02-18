@@ -23,6 +23,7 @@ class ContactoController extends AbstractController {
      * @Route("/", name ="index")
      */
     public function index():Response{
+        /* Renderizamos el index que sera la pagina principal que utilizaremos */
         return $this->render('index.html.twig');
     }
 
@@ -30,11 +31,12 @@ class ContactoController extends AbstractController {
      * @Route("/crear", name="crear")
      */
     public function crear(Request $request):Response{
+/* Funcion para crear personas en el formulario */
         $persona = new Persona();
-        
+/* Creamos un formulario, con las propiedades de la entidad persona  */
         $form = $this->createForm(PersonaType::class, $persona);
-
         $form->handleRequest($request);
+/* Si los datos del formulario son correctos renderizamos otro html y añadimos el resultado a mysqlite */
         if($form->isSubmitted() && $form->isValid()){
             $persona = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
@@ -42,6 +44,7 @@ class ContactoController extends AbstractController {
             $entityManager->flush();
             return $this->render('persona/contacto_success.html.twig');
         }
+        /* html donde ponemos el formulario para poder crear una nueva persona */
         return $this->render('persona/new.html.twig',[
             'form' => $form->createView(),
         ]);
@@ -52,14 +55,18 @@ class ContactoController extends AbstractController {
      * @Route("/list/{type}", name="list")
      */
     public function list(Request $request, $type):Response{
+/* Funcion para listar todos los usuarios */
+/* Creamos una comparacion para saber que tipo de contacto sera */
         if($type == 'global'){
             $persona = $this->getDoctrine()
+            /* Si el contacto es global, buscaremos todos los contactos*/
             ->getRepository(Persona::class)
             ->findAll();
 
         }else{
             $persona = $this->getDoctrine()
             ->getRepository(Persona::class)
+            /* Si queremos buscar de un tipo en especifico, buscaremos por el tipo, que sera el nombre que le damos en la entidad */
             ->findBy(['tipo' => $type]);
         }
             return $this->render('persona/list.html.twig',[
@@ -72,7 +79,9 @@ class ContactoController extends AbstractController {
      * @Route("/mostrar/{id}", name="mostrar")
      */
     public function mostrar(int $id, PersonaRepository $personaRepository):Response{
+        /* Funcion para mostrar mas detalles de cada uno de los contactos */
         $persona = $personaRepository
+        /* Buscamos las personas por su id, para poder enviarla al twig */
             ->find($id);
 
             return $this->render('persona/mostrar.html.twig',[
@@ -84,12 +93,14 @@ class ContactoController extends AbstractController {
      * @Route("/borrar/{id}", name="borrar")
      */
     public function borrar(int $id, PersonaRepository $personaRepository, Persona $persona):Response{
-        
+        /* Funcion para borrar contactos */
             if (!$persona) {
+                /* Si no existe, dara un mensaje de error */
                 throw $this->createNotFoundException('No guest found');
             }
         
             $entityManager = $this->getDoctrine()->getManager();
+            /* Si existe, se borra el contacto y se envia la solicitud a la base de datos */
             $entityManager->remove($persona);
             $entityManager->flush();
         
@@ -103,13 +114,14 @@ class ContactoController extends AbstractController {
      */
     public function formEditExampleAction(Request $request, int $id,  PersonaRepository $personaRepository)
     {
+        /* Funcion para editar, tenemos que buscar las personas por el id */
         $em = $this->getDoctrine()->getManager();
         $persona = $personaRepository
             ->find($id);
         $form = $this->createForm(PersonaType::class, $persona);
 
         $form->handleRequest($request);
-
+        /* Al igual que en el primero, creamos un formulario, y renderizamos el html que nos indicar que la funcion se a realizado */
         if ($form->isSubmitted() && $form->isValid()) {
 
             $em->flush();
