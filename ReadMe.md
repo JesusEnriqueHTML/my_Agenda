@@ -16,6 +16,10 @@ Inspirada en el anime **JoJo Bizarre adventure**
     - usando plantillas de html.twig
     - bootstrap
 
+## Instalacion y Requisitos ##
+  - **Debemos de tener instalado symfony con composer**
+  - **Antes de iniciar la aplicaccion es recomendable probar la demo, en la documentacion de symfony**
+  
 ## Usabilidad del proyecto ##
 - **Explicacion Codigo**
 
