@@ -26,7 +26,7 @@ Inspirada en el anime **JoJo Bizarre adventure**
 La agenda, tendrá diferentes tipos, dependiendo de la imagen, irá a un tipo de agenda diferente.
 ![Con titulo](/public/resources/Markdown/tipo.png "titulo")
 - Todas las agendas tienen los mismos estilos, heredando de la misma base.html.twig
-~~~
+~~~twig
        <div class=" mt-5 contenido" id="page_container">
         {% block contain %}
             {% endblock %}
@@ -35,7 +35,7 @@ La agenda, tendrá diferentes tipos, dependiendo de la imagen, irá a un tipo de
 
 - En **base.html.twig**, dejamos el contain vacio para que al usarlo en las demas plantillas, no tengamos que realizar nada de lo hecho anteriormente, es decir tendremos el __header, el navbar y el footer__.
 
-~~~
+~~~twig
     {% extends 'base.html.twig' %}
 ~~~
 
@@ -46,7 +46,7 @@ La agenda, tendrá diferentes tipos, dependiendo de la imagen, irá a un tipo de
 
 En el navbar, habrá diferentes enlaces, para ir a cada parte de la página, en el lado derecho se encontrará el link para redireccionarnos a un enlace para que podamos agregar diferentes contactos. Los campos que no se podrán repetir serán teléfono y correo.
     -El código se encontrará en el controlador principal de nuestra aplicacción.
-~~~
+~~~php
  /**
      * @Route("/crear", name="crear")
      */
@@ -85,7 +85,7 @@ Al pulsar cada una de las imágenes nos saldrá una lista que nos permitirá ver
     + ![Con titulo](/public/resources/Markdown/lista2.png "titulo")
 
 Al pusar en los botones que **que estan en el lado derecho** no redireccionarán a diferentes páginas, el primero que es **Mostrar mas**, nos llevará una página para poder ver su información más a detalle. Este código se realizá en el controller principal.
-~~~
+~~~php
 /**
      * @Route("/mostrar/{id}", name="mostrar")
      */
@@ -101,7 +101,7 @@ Al pusar en los botones que **que estan en el lado derecho** no redireccionarán
 ~~~
 
 Y una vez dentro, unicamente podremos ver la información y tambien puede **modificar el contacto, generando un formulario con los datos del registro**
-~~~
+~~~php
    public function formEditExampleAction(Request $request, int $id,  PersonaRepository $personaRepository)
     {
         $em = $this->getDoctrine()->getManager();
@@ -125,7 +125,7 @@ Y una vez dentro, unicamente podremos ver la información y tambien puede **modi
 ~~~
 
 Aparte de poder modificar el contacto al lado del botón de visualizar mas datos, podremos borrar el registro, como en el caso anterior **lo definiremos en el controller**
-~~~
+~~~php
    /**
      * @Route("/borrar/{id}", name="borrar")
      */
